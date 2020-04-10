@@ -1,2 +1,5 @@
 # VPNSophos4Linux
-Debugando os arquivos Sophos VPN Client to Site para SO Linux - Debugging Sophos VPN Client to Site to Linux OS
+PT-BR
+Debugando problemas nos arquivos Sophos VPN Client to Site para qualquer SO Linux 
+EN
+Debugging issues on Sophos VPN Client to Site in any Linux OS
