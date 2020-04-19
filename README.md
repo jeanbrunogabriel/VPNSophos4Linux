@@ -19,7 +19,7 @@ A simple bash script that solves "bad compression stub decompression header byte
 
 Step by step:
 
-1- git clone git@github.com:trovew/VPNSophos4Linux.git
+1- git clone git@github.com:jeanbrunogabriel/VPNSophos4Linux.git
 
 2- cd VPNSophos4Linux
 
