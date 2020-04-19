@@ -6,7 +6,7 @@ Debugando problemas nos arquivos Sophos VPN Client to Site para qualquer distro 
 
 passo a passo:
 
-1- git clone git@github.com:trovew/VPNSophos4Linux.git
+1- git clone git@github.com:jeanbrunogabriel/VPNSophos4Linux.git
 
 2- cd VPNSophos4Linux
 
