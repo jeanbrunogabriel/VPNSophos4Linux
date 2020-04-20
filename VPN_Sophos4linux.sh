@@ -1,13 +1,13 @@
 #!/bin/bash
 
-#Based on angristan code: https://github.com/angristan/openvpn-install
+#Functions isRoot and checkOS are based on angristan code: https://github.com/angristan/openvpn-install thanks!
+
 function isRoot () {
 	if [ "$EUID" -ne 0 ]; then
-		return 1
+		return 1 
 	fi
+	
 }
-#Final of the agristan code. Thanks!
-
 function checkOS () {
 	source /etc/os-release
 	echo "Installing openvpn..."
@@ -48,6 +48,5 @@ fi
 
 if [[ -e /usr/sbin/openvpn ]]; then
 	debug
-else
-	checkOS
 fi
+	checkOS
