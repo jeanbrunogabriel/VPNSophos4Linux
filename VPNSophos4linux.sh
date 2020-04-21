@@ -31,7 +31,6 @@ function checkOS () {
 }
 
 function debug () {
-	OVPN=${1:-}
 	sed -i 's/comp-lzo no/comp-lzo yes/g' $OVPN
 	sed -i '/route remote_host 255.255.255.255 net_gateway/d' $OVPN
 	TLS=$(! grep tls-version-min $OVPN && sed -i '$ a tls-version-min 1.0' $OVPN)
@@ -39,7 +38,6 @@ function debug () {
 	exit 0
 }
 function requirements () {
-	OVPN=${1:-}
 	if ! isRoot; then
 		echo "ERROR: Please. Run as root."
 		exit 1
@@ -52,10 +50,11 @@ function requirements () {
 	fi
 	return
 }
-requirements $1
+OVPN=$1
+requirements 
 if  [[ ! -e /usr/sbin/openvpn ]]; then
 	checkOS
 fi
-	debug $1	
+	debug 
 
 
