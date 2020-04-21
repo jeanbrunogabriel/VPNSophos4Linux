@@ -31,22 +31,31 @@ function checkOS () {
 }
 
 function debug () {
+	OVPN=${1:-}
 	sed -i 's/comp-lzo no/comp-lzo yes/g' $OVPN
 	sed -i '/route remote_host 255.255.255.255 net_gateway/d' $OVPN
-	echo "tls-version-min 1.0" >> $OVPN
+	TLS=$(! grep tls-version-min $OVPN && sed -i '$ a tls-version-min 1.0' $OVPN)
 	openvpn $OVPN
 	exit 0
 }
-OVPN=$1
-if ! isRoot; then
-	echo "Please. Run as root."
-	exit 1
-elif [ -z $OVPN ]; then
-	echo "Please. Specify a file .ovpn"
-	exit 1
-fi
-
-if [[ -e /usr/sbin/openvpn ]]; then
-	debug
-fi
+function requirements () {
+	OVPN=${1:-}
+	if ! isRoot; then
+		echo "ERROR: Please. Run as root."
+		exit 1
+	elif [[ -z $OVPN || $(echo $OVPN | grep -v .ovpn$) ]]; then
+		echo "ERROR: Please. Specify a file .ovpn"
+		exit 1
+	elif [[ ! -e $OVPN ]]; then
+		echo "ERROR: This file does not exists"
+		exit 1
+	fi
+	return
+}
+requirements $1
+if  [[ ! -e /usr/sbin/openvpn ]]; then
 	checkOS
+fi
+	debug $1	
+
+
