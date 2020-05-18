@@ -10,7 +10,7 @@ Debugando problemas nos arquivos Sophos VPN Client to Site para qualquer distro 
 ### Como executar (Execute como root) / How to run (Always run as root):
 
 ```sh
-git clone git@github.com:jeanbrunogabriel/VPNSophos4Linux.git
+git clone https://github.com/jeanbrunogabriel/VPNSophos4Linux.git
 ```
 ```sh
 cd VPNSophos4Linux
