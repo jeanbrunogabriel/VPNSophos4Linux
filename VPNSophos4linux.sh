@@ -33,7 +33,7 @@ function checkOS () {
 function debug () {
 	sed -i 's/comp-lzo no/comp-lzo yes/g' $OVPN
 	sed -i '/route remote_host 255.255.255.255 net_gateway/d' $OVPN
-	TLS=$(! grep tls-version-min $OVPN && sed -i '$ a tls-version-min 1.0' $OVPN)
+	TLS=$(! grep tls-version-min $OVPN && sed -i '$ a tls-version-min 1.0' $OVPN || sed -i 's/tls-version-min *.*/tls-version-min 1.0/g' $OVPN)
 	openvpn $OVPN
 	exit 0
 }
